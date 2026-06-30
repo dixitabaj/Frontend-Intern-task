@@ -4,6 +4,7 @@ import DashboardPage from "../pages/DashboardPage";
 import TasksPage from "../pages/TaskManagement";
 import ProtectedRoute from "./ProtectedRoute";
 
+// Centralized route configuration with protected areas for authenticated pages.
 export default function AppRoutes() {
   return (
     <Routes>

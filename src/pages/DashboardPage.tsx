@@ -2,6 +2,7 @@ import { useTasks } from "../features/tasks/useTasks";
 import { TaskChart } from "../components/TaskChart";
 import Sidebar from "../components/Sidebar";
 
+// Dashboard page that shows task summary metrics and progress charts.
 export default function DashboardPage() {
   const { allTasks, isLoading, isError } = useTasks();
 

@@ -1,26 +1,14 @@
+
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../features/auth/AuthContext";
-
-const DashboardIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <rect x="2" y="2" width="6" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
-    <rect x="10" y="2" width="6" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
-    <rect x="2" y="10" width="6" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
-    <rect x="10" y="10" width="6" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
-  </svg>
-);
-
-const TasksIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-    <path d="M3 5h12M3 9h12M3 13h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    <circle cx="15.5" cy="13" r="1.5" stroke="currentColor" strokeWidth="1.5" />
-  </svg>
-);
+import dashboardIcon from "../assets/board.png";
+import taskManagementIcon from "../assets/taskManagement.png";
+import taskIcon from "../assets/tasks.png";
 
 const navItems = [
-  { to: "/dashboard", label: "Dashboard", icon: DashboardIcon },
-  { to: "/tasks", label: "Task Management", icon: TasksIcon },
+  { to: "/dashboard", label: "Dashboard", icon: dashboardIcon },
+  { to: "/tasks", label: "Task Management", icon: taskIcon },
 ];
 
 function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
@@ -29,17 +17,14 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex items-center gap-2 px-2 mb-8">
-        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-          <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-            <path d="M9 2H4a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-5" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
-            <path d="M15 2l3 3-8 8H7v-3l8-8z" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+        <div className="w-11 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <img src={taskManagementIcon} alt="" className="w-19 h-9" />
         </div>
         <span className="font-semibold text-gray-900">Task Dashboard</span>
       </div>
 
       <nav className="flex-1 space-y-1">
-        {navItems.map(({ to, label, icon: Icon }) => (
+        {navItems.map(({ to, label, icon }) => (
           <NavLink
             key={to}
             to={to}
@@ -52,7 +37,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
               }`
             }
           >
-            <Icon />
+            <img src={icon} alt="" className="w-[26px] h-[26px]" />
             {label}
           </NavLink>
         ))}

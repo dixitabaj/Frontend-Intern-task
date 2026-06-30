@@ -4,6 +4,7 @@ import { fetchTasks } from "../../api/tasksApi";
 import type { Task, TaskFilter, CreateTaskInput, EditTaskInput } from "../../types";
 import { toast } from "react-toastify";
 
+// Task data hook for loading, filtering, and mutating tasks in the dashboard.
 export const TASKS_QUERY_KEY = ["tasks"] as const;
 
 export function useTasks() {

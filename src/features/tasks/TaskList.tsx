@@ -1,5 +1,5 @@
 import { Check, Pencil, Trash2, Eye, ChevronLeft, ChevronRight } from "lucide-react";
-import type { Task } from "../types";
+import type { Task } from "../../types";
 
 interface Props {
   tasks: Task[];
@@ -12,9 +12,9 @@ interface Props {
 }
 
 const PRIORITY_STYLES: Record<string, string> = {
-  high: "bg-red-50 text-red-600",
-  medium: "bg-amber-50 text-amber-600",
-  low: "bg-green-50 text-green-600",
+  High: "bg-red-50 text-red-600",
+  Medium: "bg-amber-50 text-amber-600",
+  Low: "bg-green-50 text-green-600",
 };
 
 export default function TaskList({
@@ -57,7 +57,11 @@ export default function TaskList({
                 <td className="px-4 py-3 text-gray-400 text-xs">{(page - 1) * 10 + index + 1}</td>
 
                 <td className="px-4 py-3 max-w-[200px] sm:max-w-xs">
-                  <p className={`truncate ${task.status === "completed" ? " text-gray-900" : "text-gray-900"}`}>
+                  <p
+                    className={`truncate ${
+                      task.status === "completed" ? " text-gray-900" : "text-gray-900"
+                    }`}
+                  >
                     {task.title}
                   </p>
                 </td>
@@ -82,7 +86,7 @@ export default function TaskList({
                 <td className="px-4 py-3 hidden md:table-cell">
                   {task.priority ? (
                     <span
-                      className={`text-xs px-2 py-0.5 rounded-full font-medium capitalize ${
+                      className={`text-xs px-2 py-0.5 rounded-full font-medium ${
                         PRIORITY_STYLES[task.priority] ?? "bg-gray-100 text-gray-500"
                       }`}
                     >

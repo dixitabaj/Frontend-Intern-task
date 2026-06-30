@@ -6,6 +6,7 @@ import { queryClient } from "./services/queryClient";
 import { AuthProvider } from "./features/auth/AuthContext";
 import AppRoutes from "./routes/AppRoutes";
 
+// Root application component that wires global providers and route rendering.
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
