@@ -1,7 +1,7 @@
 import { tasksClient } from "./tasksClient";
 import type { RemoteTodo, Task } from "../types";
 
-const PRIORITIES = ["low", "medium", "high"] as const;
+const PRIORITIES = ["Low", "Medium", "High"] as const;
 
 function mapRemoteTodoToTask(todo: RemoteTodo): Task {
   return {
