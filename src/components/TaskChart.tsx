@@ -31,7 +31,7 @@ export function TaskChart({ completed, pending }: TaskChartProps) {
               <Cell key={index} fill={COLORS[index]} />
             ))}
           </Pie>
-          <Tooltip formatter={(value: number | undefined) => [`${value ?? 0} tasks`, ""]} />
+         
           <Legend />
         </PieChart>
       </ResponsiveContainer>
