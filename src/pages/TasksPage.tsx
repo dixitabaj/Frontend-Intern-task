@@ -7,7 +7,7 @@ import EditTaskModal from "../features/tasks/EditTaskModal";
 import TaskDetailModal from "../features/tasks/TaskDetailModal";
 import DeleteConfirmModal from "../features/tasks/DeleteConfirmModal";
 import Sidebar from "../components/Sidebar";
-import TaskSkeleton from "../features/tasks/TaskSkeleton";
+import TaskSkeleton from "../features/tasks/taskSkeleton";
 import type { Task } from "../types";
 
 export default function TasksPage() {

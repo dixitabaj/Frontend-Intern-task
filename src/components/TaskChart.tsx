@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
 
 interface TaskChartProps {
   completed: number;
@@ -31,7 +31,7 @@ export function TaskChart({ completed, pending }: TaskChartProps) {
               <Cell key={index} fill={COLORS[index]} />
             ))}
           </Pie>
-          <Tooltip formatter={(value: number) => [`${value} tasks`]} />
+         
           <Legend />
         </PieChart>
       </ResponsiveContainer>
