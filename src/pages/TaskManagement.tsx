@@ -7,6 +7,7 @@ import EditTaskModal from "../features/tasks/EditTaskModal";
 import TaskDetailModal from "../features/tasks/TaskDetailModal";
 import DeleteConfirmModal from "../features/tasks/DeleteConfirmModal";
 import Sidebar from "../components/Sidebar";
+import TaskSkeleton from "../features/tasks/TaskSkeleton";
 import type { Task } from "../types";
 
 export default function TasksPage() {
@@ -62,13 +63,7 @@ export default function TasksPage() {
         <div className="mx-6 mb-6 bg-white border border-gray-200 rounded-xl overflow-hidden">
 
           {/* States */}
-          {isLoading && (
-            <div className="flex flex-col gap-1.5 p-6">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="h-12 bg-gray-100 rounded-lg animate-pulse" />
-              ))}
-            </div>
-          )}
+          {isLoading && <TaskSkeleton />}
 
           {isError && (
             <div className="flex flex-col items-center justify-center py-20 text-gray-400">

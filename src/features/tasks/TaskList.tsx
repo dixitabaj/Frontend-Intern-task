@@ -57,7 +57,7 @@ export default function TaskList({
                 <td className="px-4 py-3 text-gray-400 text-xs">{(page - 1) * 10 + index + 1}</td>
 
                 <td className="px-4 py-3 max-w-[200px] sm:max-w-xs">
-                  <p className={`truncate ${task.status === "completed" ? "line-through text-gray-400" : "text-gray-900"}`}>
+                  <p className={`truncate ${task.status === "completed" ? " text-gray-900" : "text-gray-900"}`}>
                     {task.title}
                   </p>
                 </td>
