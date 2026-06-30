@@ -6,6 +6,7 @@ import { loginSchema, type LoginFormValues } from "../features/auth/loginSchema"
 import { useLogin } from "../features/auth/useLogin";
 import { useAuth } from "../features/auth/AuthContext";
 
+// Login screen with form validation and redirect handling after authentication.
 export default function LoginPage() {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();

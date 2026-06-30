@@ -3,7 +3,7 @@ import { login } from "../../api/authApi";
 import { useAuth } from "./AuthContext";
 import type { LoginCredentials } from "../../types";
 
-// custom hook to handle login logic, including calling the API and updating auth context
+// Mutation hook that submits credentials, stores the token, and updates auth state.
 export function useLogin() {
   const { loginWithToken } = useAuth();
 
