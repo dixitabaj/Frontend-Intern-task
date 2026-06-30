@@ -3,10 +3,6 @@ export interface LoginCredentials {
   password: string;
 }
 
-/**
- * Response shape from ReqRes's POST /api/login.
- * https://reqres.in/api/login
- */
 export interface LoginResponse {
   token: string;
 }
