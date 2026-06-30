@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import DashboardPage from "../pages/DashboardPage";
+import TasksPage from "../pages/TaskManagement";
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function AppRoutes() {
@@ -10,6 +11,7 @@ export default function AppRoutes() {
 
       <Route element={<ProtectedRoute />}>
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
       </Route>
 
       <Route path="/" element={<Navigate to="/dashboard" replace />} />

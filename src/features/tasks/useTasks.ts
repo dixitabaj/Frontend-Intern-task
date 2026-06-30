@@ -38,7 +38,7 @@ export function useTasks() {
     mutationFn: async (input: CreateTaskInput): Promise<Task> => {
       await new Promise((r) => setTimeout(r, 400));
       return {
-        id: Date.now(),
+        id: (queryClient.getQueryData<Task[]>(TASKS_QUERY_KEY) ?? []).reduce((max, t) => Math.max(max, t.id), 0) + 1,
         userId: 1,
         title: input.title,
         status: "pending",
@@ -63,7 +63,9 @@ export function useTasks() {
     onSuccess: ({ id, input }) => {
       queryClient.setQueryData<Task[]>(TASKS_QUERY_KEY, (old = []) =>
         old.map((t) =>
-          t.id === id ? { ...t, title: input.title, status: input.status, priority: input.priority } : t
+          t.id === id
+            ? { ...t, title: input.title, status: input.status, priority: input.priority }
+            : t
         )
       );
       toast.success("Task updated successfully");
@@ -77,7 +79,9 @@ export function useTasks() {
       return id;
     },
     onSuccess: (id) => {
-      queryClient.setQueryData<Task[]>(TASKS_QUERY_KEY, (old = []) => old.filter((t) => t.id !== id));
+      queryClient.setQueryData<Task[]>(TASKS_QUERY_KEY, (old = []) =>
+        old.filter((t) => t.id !== id)
+      );
       toast.success("Task deleted");
     },
     onError: () => toast.error("Failed to delete task"),
@@ -92,9 +96,15 @@ export function useTasks() {
     isLoading: query.isLoading,
     isError: query.isError,
     search,
-    setSearch: (v: string) => { setSearch(v); resetPage(); },
+    setSearch: (v: string) => {
+      setSearch(v);
+      resetPage();
+    },
     filter,
-    setFilter: (v: TaskFilter) => { setFilter(v); resetPage(); },
+    setFilter: (v: TaskFilter) => {
+      setFilter(v);
+      resetPage();
+    },
     page,
     setPage,
     totalPages,
